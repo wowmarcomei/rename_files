@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eecdc39f-bed6-4c02-9658-d19e71bc05d6" name="Default" comment="" />
-    <list id="53ca0e6d-4171-45ab-ad8c-d0580efe5708" name="Failed commit: Default" comment="add filter function">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    <list default="true" id="eecdc39f-bed6-4c02-9658-d19e71bc05d6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
+    <list id="53ca0e6d-4171-45ab-ad8c-d0580efe5708" name="Failed commit: Default" comment="add filter function" />
     <ignored path="RenameVideosImages.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -521,7 +520,7 @@
         <state relative-caret-position="1290">
           <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="104" selection-end-column="37" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -559,7 +558,7 @@
         <state relative-caret-position="180">
           <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="false" />
           </folding>
         </state>
       </provider>
