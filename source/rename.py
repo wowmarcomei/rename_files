@@ -11,8 +11,8 @@ from hachoir import subfile
 
 # print(help(hachoir)) #查询模块具有哪些package
 
-sourcedir = "../videosAndImages"  # 文件复制源路径
-targetdir = "../newFiles"  # 文件复制目标路径
+sourceDir = "../videosAndImages"  # 文件复制源路径
+targetDir = "../newFiles"  # 文件复制目标路径
 fileType = {
     'jpg': '.jpg',
     'png': '.png',
@@ -20,32 +20,32 @@ fileType = {
     'mov': '.mov'
 }
 
-def getFiles(src,type):
+def FilesFilter(src,type):
     """
-    遍历源文件目录，将所有符合类型的文件的路径放入filelist,返回filelist
+    遍历源文件目录，将所有符合类型的文件的路径放入selectfilelist,返回selectfilelist
 
     :param src: 源目录
     :param type: 文件类型
     :return selectfilelist: 文件列表
     """
-    dirstack = [sourcedir]  # 遍历目录的目录栈
-    filelist = []  # 读取到的文件列表
-    selectfilelist = [] #筛选后的文件列表
+    dirStack = [sourceDir]  # 遍历目录的目录栈
+    fileList = []  # 读取到的文件列表
+    selectFileList = [] #筛选后的文件列表
 
     # 遍历源文件目录，将所有文件的路径放入filelist
-    while (len(dirstack) > 0):
-        parentdir = dirstack.pop()
-        pathlist = os.listdir(parentdir)
+    while (len(dirStack) > 0):
+        parentDir = dirStack.pop()
+        pathlist = os.listdir(parentDir)
 
-        #赛选文件类型,并置于列表selectfilelist中
+        #筛选文件类型,并置于列表selectfilelist中
         for i in range(0,len(pathlist)):
             if (pathlist[i][-4:] == type):
-                selectfilelist.append(pathlist[i])
+                selectFileList.append(pathlist[i])
 
-        print("赛选后的file为: {}".format(selectfilelist))
-    return selectfilelist
+        print("Selected files are: {}".format(selectFileList))
+    return selectFileList
 
-getFiles(sourcedir,fileType['mov'])
+FilesFilter(sourceDir,fileType['jpg'])
 
 
 # #如果没有目录则新建一个
