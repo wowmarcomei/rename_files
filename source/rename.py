@@ -89,9 +89,28 @@ def decodeMyFiles(file,filetype,myChar='Creation date',timePosition=8):
 def RenameFiles(src,type,dst='../videosAndImages'):
     files = FilesFilter(src,type)
     for i in range(0,len(files)):
-        print("i is: {}".format(i))
         a=decodeMyFiles(files[i],type)
         os.rename(files[i], dst+'/'+a+type)
 
+def RenameTestedFiles(src,type):
+    fileList = []
+    selectedFiles = []
+    test = 0
+    for file in os.listdir(src):
+        fileList.append(file)
+
+    for i in range(0,len(fileList)):
+        if fileList[i][-4:] == type:
+            selectedFiles.append(fileList[i])
+    #重新命名文件
+    for file in selectedFiles:
+        test += 1
+        os.rename(src+'/'+file,src+'/'+str(test)+type)
+
+
+#测试一把,将sourceDir目录下的视频文件根据拍摄日期重命名
 RenameFiles(sourceDir,fileType['mov'])
+
+#将测试文件名字重新还原
+# RenameTestedFiles(sourceDir,fileType['jpg'])
 
