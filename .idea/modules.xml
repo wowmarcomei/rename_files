@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/RenameVideosImages.iml" filepath="$PROJECT_DIR$/.idea/RenameVideosImages.iml" />
+      <module fileurl="file://$USER_HOME$/workstation/exercise/python/.idea/pythonExe.iml" filepath="$USER_HOME$/workstation/exercise/python/.idea/pythonExe.iml" />
     </modules>
   </component>
 </project>
