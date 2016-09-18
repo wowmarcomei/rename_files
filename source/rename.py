@@ -130,11 +130,12 @@ def RenameTestedFiles(src,type):
 
 
 #测试一把,将sourceDir目录下的视频文件根据拍摄日期重命名
-# RenameFiles(sourceDir,fileType['mp4'])
-# RenameFiles(sourceDir,fileType['mov'])
-RenameFiles(sourceDir, fileType['jpg'])
+RenameFiles(sourceDir,fileType['mp4'])
+RenameFiles(sourceDir,fileType['mov'])
+RenameFiles(sourceDir, fileType['png'])
 
 
 # 将测试文件名字重新还原
-# RenameTestedFiles(sourceDir,fileType['jpg'])
+# RenameTestedFiles(sourceDir,fileType['png'])
 # RenameTestedFiles(sourceDir,fileType['mov'])
+# RenameTestedFiles(sourceDir,fileType['mp4'])
