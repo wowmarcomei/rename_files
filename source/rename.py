@@ -58,18 +58,19 @@ def decodeMyFiles(file,filetype,myChar='Creation date',timePosition=8):
     """
     parserFile = parser.createParser(file) #解析文件
     if not parserFile:
-        print("Unable to parse file!\n")
-        exit(1)
-
+        print("Unable to parse file - {}\n".format(file))
+        return False
     try:
         metadataDecode = metadata.extractMetadata(parserFile)  # 获取文件的metadata
     except ValueError:
         print('Metadata extraction error.')
         metadataDecode = None
+        return False
 
     if not metadataDecode:
         print("Unable to extract metadata.")
-        exit(1)
+        return False
+
 
     myList = metadataDecode.exportPlaintext(line_prefix="") # 将文件的metadata转换为list,且将前缀设置为空
 
@@ -84,18 +85,36 @@ def decodeMyFiles(file,filetype,myChar='Creation date',timePosition=8):
             print("The {0} is: {1}".format(myChar,fileFinalTime))
             return fileFinalTime
 
-    print("Unable to get the creation time of {}\n".format(file))
+    # print("Unable to get the creation time of {}\n".format(file))
 
 def RenameFiles(src,type,dst='../videosAndImages'):
+    """重新命名文件,根据文件的原始创建时间来命名
+
+    :param src: 源目录
+    :param type: 文件类型
+    :param dst: 目的目录
+    :return: NULL
+    """
     files = FilesFilter(src,type)
     for i in range(0,len(files)):
+        #这一步十分重要,需要判断文件是否解析成功,如果文件不能解析的话,跳出循环继续解析别的文件
         a=decodeMyFiles(files[i],type)
-        os.rename(files[i], dst+'/'+a+type)
+        if not a:
+            continue
+        else:
+            # print(a,files[i])
+            os.rename(files[i], dst+'/'+a+type)
 
 def RenameTestedFiles(src,type):
+    """该函数主要用于测试,将转换成功的文件重新打回原形
+
+    :param src: 文件目录
+    :param type: 文件类型
+    :return: NULL
+    """
     fileList = []
     selectedFiles = []
-    test = 0
+    test = 2000
     for file in os.listdir(src):
         fileList.append(file)
 
@@ -106,11 +125,16 @@ def RenameTestedFiles(src,type):
     for file in selectedFiles:
         test += 1
         os.rename(src+'/'+file,src+'/'+str(test)+type)
+        print(src+'/'+str(test)+type)
+        print(test)
 
 
 #测试一把,将sourceDir目录下的视频文件根据拍摄日期重命名
-RenameFiles(sourceDir,fileType['mov'])
+# RenameFiles(sourceDir,fileType['mp4'])
+# RenameFiles(sourceDir,fileType['mov'])
+RenameFiles(sourceDir, fileType['jpg'])
 
-#将测试文件名字重新还原
+
+# 将测试文件名字重新还原
 # RenameTestedFiles(sourceDir,fileType['jpg'])
-
+# RenameTestedFiles(sourceDir,fileType['mov'])
