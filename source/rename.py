@@ -129,7 +129,7 @@ def RenameTestedFiles(src,type):
         print(test)
 
 
-#测试一把,将sourceDir目录下的视频文件根据拍摄日期重命名
+####测试一把,将sourceDir目录下的视频文件根据拍摄日期重命名
 RenameFiles(sourceDir,fileType['mp4'])
 RenameFiles(sourceDir,fileType['mov'])
 RenameFiles(sourceDir, fileType['png'])
